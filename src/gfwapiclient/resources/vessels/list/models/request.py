@@ -22,8 +22,6 @@ VESSEL_LIST_REQUEST_PARAMS_VALIDATION_ERROR_MESSAGE: Final[str] = (
 
 
 class VesselListParams(VesselBaseDetailParams):
-    """Request query parameters for get list of vessels filtered by ids API endpoint."""
-
     """Request query parameters for the get list of vessels filtered by IDs API endpoint.
 
     Attributes:

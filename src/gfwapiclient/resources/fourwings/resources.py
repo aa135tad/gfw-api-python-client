@@ -87,8 +87,10 @@ class FourWingsResource(BaseResource):
         - Fleet management
         - Supply chain visibility
 
-        For more details on the 4Wings AIS apparent fishing effort data caveats,
+        For more details on the 4Wings AIS apparent fishing effort and it data caveats,
         please refer to the official Global Fishing Watch API documentation:
+
+        See: https://globalfishingwatch.org/our-apis/documentation#ais-apparent-fishing-effort
 
         See: https://globalfishingwatch.org/our-apis/documentation#apparent-fishing-effort
 
@@ -204,8 +206,10 @@ class FourWingsResource(BaseResource):
         - Fleet management
         - Supply chain visibility
 
-        For more details on the 4Wings AIS vessel presence data caveats,
+        For more details on the 4Wings AIS vessel presence and its data caveats,
         please refer to the official Global Fishing Watch API documentation:
+
+        See: https://globalfishingwatch.org/our-apis/documentation#ais-vessel-presence
 
         See: https://globalfishingwatch.org/our-apis/documentation#ais-vessel-presence-caveats
 
@@ -318,10 +322,19 @@ class FourWingsResource(BaseResource):
         - Dark vessel detection
         - Remote area surveillance
 
-        For more details on the 4Wings SAR vessel detections data caveats,
+        For more details on the 4Wings SAR vessel detections and its data caveats,
         please refer to the official Global Fishing Watch API documentation:
 
+        See: https://globalfishingwatch.org/our-apis/documentation#sar-vessel-detections
+
         See: https://globalfishingwatch.org/our-apis/documentation#sar-vessel-detections-data-caveats
+
+        **Important:**
+
+        **AIS vessel presence** shows where vessels **reported their positions** via
+        the **Automatic Identification System (AIS)**. **SAR vessel detection** shows
+        where **Synthetic Aperture Radar (SAR) satellites detected** vessels on the
+        ocean surface, even if they **weren't transmitting AIS**.
 
         Args:
             spatial_resolution (Optional[Union[FourWingsReportSpatialResolution, str]], default="HIGH"):

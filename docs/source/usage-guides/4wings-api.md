@@ -34,7 +34,7 @@ The `gfw_client.fourwings` object provides methods to generate reports, retrieve
 
 ## Creating a Fishing Effort Report (`create_fishing_effort_report`)
 
-Generates **AIS (Automatic Identification System) apparent fishing effort** reports to visualize fishing activity. [Please check the data caveats here](https://globalfishingwatch.org/our-apis/documentation#apparent-fishing-effort).
+Generates **AIS (Automatic Identification System) apparent fishing effort** reports to visualize fishing activity. Please [learn more about apparent fishing effort here](https://globalfishingwatch.org/our-apis/documentation#ais-apparent-fishing-effort) and [check its data caveats here](https://globalfishingwatch.org/our-apis/documentation#apparent-fishing-effort).
 
 ```python
 fishing_effort_report_result = await gfw_client.fourwings.create_fishing_effort_report(
@@ -116,7 +116,7 @@ memory usage: 6.4+ MB
 
 ## Creating an AIS Presence Report (`create_ais_presence_report`)
 
-Generates **AIS (Automatic Identification System) vessel presence** reports to visualize movement patterns of any vessel type. [Please check the data caveats here](https://globalfishingwatch.org/our-apis/documentation#ais-vessel-presence-caveats).
+Generates **AIS (Automatic Identification System) vessel presence** reports to visualize movement patterns of any vessel type. Please [learn more about AIS vessel presence here](https://globalfishingwatch.org/our-apis/documentation#ais-vessel-presence) and [check its data caveats here](https://globalfishingwatch.org/our-apis/documentation#ais-vessel-presence-caveats).
 
 > **Disclaimer:** AIS vessel presence is one of the largest datasets available. To prevent timeouts and ensure optimal performance, keep requests manageable: prefer simple, small regions and shorter time ranges (e.g., a few days).
 
@@ -197,9 +197,11 @@ dtypes: float64(3), int64(1), object(16)
 memory usage: 22.0+ MB
 ```
 
-## Creating a SAR Presence Report (`create_sar_presence_report`)
+## Creating a SAR Vessel Detections Report (`create_sar_presence_report`)
 
-Generates **SAR (Synthetic-Aperture Radar) vessel detections** reports to identify vessels detected via radar, including non-broadcasting (possible `"dark"`) vessels. [Please check the data caveats here](https://globalfishingwatch.org/our-apis/documentation#sar-vessel-detections-data-caveats).
+Generates **SAR (Synthetic-Aperture Radar) vessel detections** reports to identify vessels detected via radar, including non-broadcasting (possible `"dark"`) vessels. Please [learn more about SAR vessel detections here](https://globalfishingwatch.org/our-apis/documentation#sar-vessel-detections) and [check its data caveats here](https://globalfishingwatch.org/our-apis/documentation#sar-vessel-detections-data-caveats).
+
+> **Important:** **AIS vessel presence** shows where vessels **reported their positions** via the **Automatic Identification System (AIS)**. **SAR vessel detection** shows where **Synthetic Aperture Radar (SAR) satellites detected** vessels on the ocean surface, even if they **weren't transmitting AIS**.
 
 ```python
 sar_presence_report_result = await gfw_client.fourwings.create_sar_presence_report(
