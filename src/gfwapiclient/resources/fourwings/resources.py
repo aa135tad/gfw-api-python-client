@@ -87,7 +87,7 @@ class FourWingsResource(BaseResource):
         - Fleet management
         - Supply chain visibility
 
-        For more details on the 4Wings AIS apparent fishing effort and it data caveats,
+        For more details on the 4Wings AIS apparent fishing effort and its data caveats,
         please refer to the official Global Fishing Watch API documentation:
 
         See: https://globalfishingwatch.org/our-apis/documentation#ais-apparent-fishing-effort
