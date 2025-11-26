@@ -19,3 +19,8 @@ Global Fishing Watch API documentation:
 
 See: https://globalfishingwatch.org/our-apis/documentation#sar-fixed-infrastructure-data-caveats
 """
+
+from gfwapiclient.resources.bulk_downloads.resources import BulkDownloadResource
+
+
+__all__ = ["BulkDownloadResource"]

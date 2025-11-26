@@ -1,6 +1,6 @@
 """Tests for `gfwapiclient.resources.bulk_downloads.file.endpoints`."""
 
-from typing import Any, Dict, Final, cast
+from typing import Any, Dict, cast
 
 import httpx
 import pytest
@@ -19,8 +19,7 @@ from gfwapiclient.resources.bulk_downloads.file.models.response import (
     BulkReportFileResult,
 )
 
-
-bulk_report_id: Final[str] = "adbb9b62-5c08-4142-82e0-b2b575f3e058"
+from ..conftest import bulk_report_id
 
 
 @pytest.mark.asyncio

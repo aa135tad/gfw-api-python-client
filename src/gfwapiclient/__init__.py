@@ -1,25 +1,52 @@
 """Global Fishing Watch (GFW) API Python Client.
 
-This package provides a Python client for interacting with the Global Fishing Watch (GFW) API,
-specifically `version 3 <https://globalfishingwatch.org/our-apis/documentation#version-3-api>`_.
-It enables access to publicly available API resources, and facilitating the retrieval of the data.
+This package provides a Python client for interacting with the Global Fishing Watch
+(GFW) API version 3.
 
-Features:
+See: https://globalfishingwatch.org/our-apis/documentation#version-3-api
 
-- **4Wings**: Access AIS apparent fishing effort, AIS vessel presence, and SAR vessel detections between 2017 to ~5 days ago.
+See: https://globalfishingwatch.org/our-apis/documentation#in-api-version-3
 
-- **Vessels**: Search and retrieve vessel identity based on AIS self-reported data, combined with authorization and registry data from regional and national registries.
+It enables access to publicly available API resources, and facilitating the retrieval
+of the following APIs data:
 
-- **Events**: Retrieve vessel activity events such as encounters, loitering, port visits, fishing events, and AIS off (aka GAPs).
+- **Map Visualization (4Wings API)**: Access AIS apparent fishing effort,
+AIS vessel presence, and SAR vessel detections between 2017 to ~5 days ago.
 
-- **Insights**: Access vessel insights that combine AIS activity, vessel identity, and public authorizations. Designed to support risk-based decision-making, operational planning, and due diligence—particularly for assessing risks of IUU (Illegal, Unreported, or Unregulated) fishing.
+- **Vessels API**: Search and retrieve vessel identity based on AIS self-reported data,
+combined with authorization and registry data from regional and national registries.
 
-- **Datasets**: Retrieve fixed offshore infrastructure detections (e.g., oil platforms, wind farms) from Sentinel-1 and Sentinel-2 satellite imagery, from 2017 up to 3 months ago, classified using deep learning.
+- **Events API**: Retrieve vessel activity events such as encounters, loitering, port
+visits, fishing events, and AIS off (aka GAPs).
 
-- **References**: Access metadata for EEZs, MPAs, and RFMOs to use in `Events API <https://globalfishingwatch.org/our-apis/documentation#events-api>`_ and `Map Visualization (4Wings API) <https://globalfishingwatch.org/our-apis/documentation#map-visualization-4wings-api>`_ requests and analyses.
+- **Insights API**: Access vessel insights that combine AIS activity, vessel identity,
+and public authorizations. Designed to support risk-based decision-making, operational
+planning, and due diligence—particularly for assessing risks of
+IUU (Illegal, Unreported, or Unregulated) fishing.
 
-For comprehensive details, please refer to the official
-`Global Fishing Watch API Documentation <https://globalfishingwatch.org/our-apis/documentation#version-3-api>`_.
+- **Datasets API**: Retrieve fixed offshore infrastructure detections (e.g.,
+oil platforms, wind farms etc.) from Sentinel-1 and Sentinel-2 satellite imagery,
+from 2017 up to 3 months ago, classified using deep learning.
+
+- **Bulk Download API**: Efficiently access and download large-scale datasets to
+integrate with big data platforms and tools used by data engineers and researchers.
+Unlike our other APIs (4Wings API, Datasets API, etc.), these datasets may include
+some **noisy** that are not filtered out.
+
+- **References**: Access metadata for EEZs, MPAs, and RFMOs to use in Events API and
+4Wings API requests and analyses.
+
+For more details on the data, API licenses, and rate limits, please refer to
+the official Global Fishing Watch API documentation:
+
+See: https://globalfishingwatch.org/our-apis/documentation#introduction
+
+For more details on the data caveats and terms of use, please refer to the
+official Global Fishing Watch API documentation:
+
+See: https://globalfishingwatch.org/our-apis/documentation#data-caveat
+
+See: https://globalfishingwatch.org/our-apis/documentation#terms-of-use
 """
 
 from gfwapiclient.__version__ import __version__

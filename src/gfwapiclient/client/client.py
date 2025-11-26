@@ -8,6 +8,7 @@ import httpx
 
 from gfwapiclient.http import HTTPClient
 from gfwapiclient.resources import (
+    BulkDownloadResource,
     DatasetResource,
     EventResource,
     FourWingsResource,
@@ -55,6 +56,9 @@ class Client:
         datasets (DatasetResource):
             Access to the datasets data resources.
 
+        bulk_downloads (BulkDownloadResource):
+            Access to the Bulk download API resources.
+
         references (ReferenceResource):
             Access to the reference data resources.
     """
@@ -64,6 +68,7 @@ class Client:
     _events: EventResource
     _insights: InsightResource
     _datasets: DatasetResource
+    _bulk_downloads: BulkDownloadResource
     _references: ReferenceResource
 
     def __init__(
@@ -244,6 +249,26 @@ class Client:
         if not hasattr(self, "_datasets"):
             self._datasets = DatasetResource(http_client=self._http_client)
         return self._datasets
+
+    @property
+    def bulk_downloads(self) -> BulkDownloadResource:
+        """Bulk download API resource.
+
+        Provides access to the Bulk Download API resources, which allow to
+        efficiently create, retrieve, and download bulk reports data and files.
+
+        For more details on the Bulk Download API, please refer to the official
+        Global Fishing Watch API documentation:
+
+        See: https://globalfishingwatch.org/our-apis/documentation#bulk-download-api
+
+        Returns:
+            BulkDownloadResource:
+                The bulk download resource instance.
+        """
+        if not hasattr(self, "_bulk_downloads"):
+            self._bulk_downloads = BulkDownloadResource(http_client=self._http_client)
+        return self._bulk_downloads
 
     @property
     def references(self) -> ReferenceResource:

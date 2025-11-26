@@ -5,6 +5,7 @@ from typing import Any, Callable, Dict, Final
 import pytest
 
 
+bulk_report_id: Final[str] = "adbb9b62-5c08-4142-82e0-b2b575f3e058"
 region_dataset: Final[str] = "public-eez-areas"
 region_id: Final[int] = 8466
 geometry: Final[Dict[str, Any]] = {

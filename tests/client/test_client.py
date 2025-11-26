@@ -6,6 +6,7 @@ import pytest
 from gfwapiclient.client.client import GFW_API_BASE_URL, Client
 from gfwapiclient.exceptions.client import AccessTokenError
 from gfwapiclient.http.client import HTTPClient
+from gfwapiclient.resources.bulk_downloads.resources import BulkDownloadResource
 from gfwapiclient.resources.datasets.resources import DatasetResource
 from gfwapiclient.resources.events.resources import EventResource
 from gfwapiclient.resources.fourwings.resources import FourWingsResource
@@ -143,6 +144,17 @@ def test_client_datasets_property_returns_dataset_resource_and_is_cached(
     assert isinstance(client.datasets, DatasetResource)
     # Test that the property is cached
     assert client.datasets is client.datasets
+
+
+def test_client_bulk_downloads_property_returns_bulk_download_resource_and_is_cached(
+    mock_base_url: str,
+    mock_access_token: str,
+) -> None:
+    """Test `Client.bulk_downloads` returns `BulkDownloadResource` and caches the instance."""
+    client = Client()
+    assert isinstance(client.bulk_downloads, BulkDownloadResource)
+    # Test that the property is cached
+    assert client.bulk_downloads is client.bulk_downloads
 
 
 def test_client_references_property_returns_reference_resource_and_is_cached(
