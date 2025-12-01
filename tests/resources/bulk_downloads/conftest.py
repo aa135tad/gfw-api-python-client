@@ -1,0 +1,40 @@
+"""Test configurations for `gfwapiclient.resources.bulk_downloads`."""
+
+from typing import Any, Callable, Dict, Final
+
+import pytest
+
+
+region_dataset: Final[str] = "public-eez-areas"
+region_id: Final[int] = 8466
+geometry: Final[Dict[str, Any]] = {
+    "type": "Polygon",
+    "coordinates": [
+        [
+            [-180.0, -85.0511287798066],
+            [-180.0, 0.0],
+            [0.0, 0.0],
+            [0.0, -85.0511287798066],
+            [-180.0, -85.0511287798066],
+        ]
+    ],
+}
+
+
+@pytest.fixture
+def mock_raw_bulk_report_item(
+    load_json_fixture: Callable[[str], Dict[str, Any]],
+) -> Dict[str, Any]:
+    """Fixture for a mock raw bulk report item.
+
+    This fixture loads sample JSON data representing a single
+    `BulkReportItem` from a fixture file.
+
+    Returns:
+        Dict[str, Any]:
+            Raw `BulkReportItem` sample data as a dictionary.
+    """
+    raw_bulk_report_item: Dict[str, Any] = load_json_fixture(
+        "bulk_downloads/bulk_report_item.json"
+    )
+    return raw_bulk_report_item
