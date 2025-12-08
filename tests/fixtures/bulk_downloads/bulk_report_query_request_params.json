@@ -1,0 +1,12 @@
+{
+    "limit": 99999,
+    "offset": 0,
+    "sort": "-structure_start_date",
+    "includes": [
+        "structure_id",
+        "lat",
+        "lon",
+        "label",
+        "label_confidence"
+    ]
+}

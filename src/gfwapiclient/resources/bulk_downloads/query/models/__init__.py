@@ -1,0 +1,17 @@
+"""Global Fishing Watch (GFW) API Python Client - Query Bulk Report Data Models.
+
+This module defines Pydantic data models used for interacting with the
+Query Bulk Report Data API endpoint. These models are used to represent
+request parameters, and response data when querying data in JSON format of the
+previously created bulk report.
+
+For detailed information about the Query Bulk Report Data API endpoint, please refer to
+the official Global Fishing Watch API documentation:
+
+See: https://globalfishingwatch.org/our-apis/documentation#get-data-in-json-format
+
+For more details on the Query Bulk Report Data data caveats, please refer to the
+official Global Fishing Watch API documentation:
+
+See: https://globalfishingwatch.org/our-apis/documentation#sar-fixed-infrastructure-data-caveats
+"""

@@ -35,6 +35,13 @@ from gfwapiclient.resources.bulk_downloads.list.models.response import (
     BulkReportListItem,
     BulkReportListResult,
 )
+from gfwapiclient.resources.bulk_downloads.query.models.base.request import (
+    BULK_REPORT_QUERY_PARAMS_VALIDATION_ERROR_MESSAGE,
+)
+from gfwapiclient.resources.bulk_downloads.query.models.fixed_infrastructure_data.response import (
+    BulkFixedInfrastructureDataQueryItem,
+    BulkFixedInfrastructureDataQueryResult,
+)
 from gfwapiclient.resources.bulk_downloads.resources import BulkDownloadResource
 
 from .conftest import bulk_report_id
@@ -173,4 +180,46 @@ async def test_bulk_download_resource_get_bulk_report_file_download_url_request_
     ):
         await resource.get_bulk_report_file_download_url(
             id=bulk_report_id, file="INVALID_FILE_TYPE"
+        )
+
+
+@pytest.mark.asyncio
+@pytest.mark.respx
+async def test_bulk_download_resource_query_bulk_fixed_infrastructure_data_report_request_success(
+    mock_http_client: HTTPClient,
+    mock_raw_bulk_report_query_request_params: Dict[str, Any],
+    mock_raw_bulk_fixed_infrastructure_data_query_item: Dict[str, Any],
+    mock_responsex: respx.MockRouter,
+) -> None:
+    """Test `BulkDownloadResource` query bulk fixed infrastructure data report succeeds with a valid response."""
+    mock_responsex.get(f"bulk-reports/{bulk_report_id}/query").respond(
+        200, json={"entries": [mock_raw_bulk_fixed_infrastructure_data_query_item, {}]}
+    )
+    resource = BulkDownloadResource(http_client=mock_http_client)
+    result: BulkFixedInfrastructureDataQueryResult = (
+        await resource.query_bulk_fixed_infrastructure_data_report(
+            **{
+                **mock_raw_bulk_report_query_request_params,
+                "id": bulk_report_id,
+            }
+        )
+    )
+    data = cast(List[BulkFixedInfrastructureDataQueryItem], result.data())
+    assert isinstance(result, BulkFixedInfrastructureDataQueryResult)
+    assert isinstance(data[0], BulkFixedInfrastructureDataQueryItem)
+
+
+@pytest.mark.asyncio
+async def test_bulk_download_resource_query_bulk_fixed_infrastructure_data_report_request_params_validation_error_raises(
+    mock_http_client: HTTPClient,
+) -> None:
+    """Test `BulkDownloadResource` query bulk fixed infrastructure data report raises `RequestParamsValidationError` with invalid parameters."""
+    resource = BulkDownloadResource(http_client=mock_http_client)
+
+    with pytest.raises(
+        RequestParamsValidationError,
+        match=BULK_REPORT_QUERY_PARAMS_VALIDATION_ERROR_MESSAGE,
+    ):
+        await resource.query_bulk_fixed_infrastructure_data_report(
+            id=bulk_report_id, limit=-1, offset=-1
         )
