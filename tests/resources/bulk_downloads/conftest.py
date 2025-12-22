@@ -70,3 +70,38 @@ def mock_raw_bulk_report_list_request_params(
         "bulk_downloads/bulk_report_list_request_params.json"
     )
     return raw_bulk_report_list_request_params
+
+
+@pytest.fixture
+def mock_raw_bulk_report_file_request_params(
+    load_json_fixture: Callable[[str], Dict[str, Any]],
+) -> Dict[str, Any]:
+    """Fixture for mock raw bulk report file request parameters.
+
+    Returns:
+        Dict[str, Any]:
+            Raw `BulkReportFileParams` sample data as dictionary.
+    """
+    raw_bulk_report_file_request_params: Dict[str, Any] = load_json_fixture(
+        "bulk_downloads/bulk_report_file_request_params.json"
+    )
+    return raw_bulk_report_file_request_params
+
+
+@pytest.fixture
+def mock_raw_bulk_report_file_item(
+    load_json_fixture: Callable[[str], Dict[str, Any]],
+) -> Dict[str, Any]:
+    """Fixture for a mock raw bulk report file item.
+
+    This fixture loads sample JSON data representing a single
+    `BulkReportFileItem` from a fixture file.
+
+    Returns:
+        Dict[str, Any]:
+            Raw `BulkReportFileItem` sample data as a dictionary.
+    """
+    raw_bulk_report_file_item: Dict[str, Any] = load_json_fixture(
+        "bulk_downloads/bulk_report_file_item.json"
+    )
+    return raw_bulk_report_file_item
