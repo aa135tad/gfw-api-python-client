@@ -39,6 +39,8 @@ The Global Fishing Watch Python package currently works with the following APIs:
 
 - [Datasets API](https://globalfishingwatch.org/our-apis/documentation#datasets-api): Retrieve fixed offshore infrastructure detections (e.g., oil platforms, wind farms) from Sentinel-1 and Sentinel-2 satellite imagery, from 2017 up to 3 months ago, classified using deep learning.
 
+- [Bulk Download API](https://globalfishingwatch.org/our-apis/documentation#bulk-download-api): Efficiently access and download large-scale datasets to integrate with big data platforms and tools used by data engineers and researchers. Unlike our other APIs ([Map Visualization (4Wings API)](https://globalfishingwatch.org/our-apis/documentation#map-visualization-4wings-api), [Datasets API](https://globalfishingwatch.org/our-apis/documentation#datasets-api) etc.), these datasets may include some **noisy** that are not filtered out.
+
 - [References API](https://globalfishingwatch.org/our-apis/documentation#regions): Access metadata for EEZs, MPAs, and RFMOs to use in [Events API](https://globalfishingwatch.org/our-apis/documentation#events-api) and [Map Visualization (4Wings API)](https://globalfishingwatch.org/our-apis/documentation#map-visualization-4wings-api) requests and analyses.
 
 > **Note:** See the [Data Caveats](https://globalfishingwatch.org/our-apis/documentation#data-caveat) and [Terms of Use](https://globalfishingwatch.org/our-apis/documentation#terms-of-use) pages in the [GFW API documentation](https://globalfishingwatch.org/our-apis/documentation#introduction) for details on GFW data, API licenses, and rate limits.
