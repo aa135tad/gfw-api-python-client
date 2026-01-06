@@ -106,3 +106,38 @@ def mock_raw_bulk_report_file_item(
         "bulk_downloads/bulk_report_file_item.json"
     )
     return raw_bulk_report_file_item
+
+
+@pytest.fixture
+def mock_raw_bulk_report_query_request_params(
+    load_json_fixture: Callable[[str], Dict[str, Any]],
+) -> Dict[str, Any]:
+    """Fixture for mock raw bulk report query request parameters.
+
+    Returns:
+        Dict[str, Any]:
+            Raw `BulkReportQueryParams` sample data as dictionary.
+    """
+    raw_bulk_report_query_request_params: Dict[str, Any] = load_json_fixture(
+        "bulk_downloads/bulk_report_query_request_params.json"
+    )
+    return raw_bulk_report_query_request_params
+
+
+@pytest.fixture
+def mock_raw_bulk_fixed_infrastructure_data_query_item(
+    load_json_fixture: Callable[[str], Dict[str, Any]],
+) -> Dict[str, Any]:
+    """Fixture for a mock raw bulk fixed infrastructure data query item.
+
+    This fixture loads sample JSON data representing a single
+    `FixedInfrastructureDataItem` from a fixture file.
+
+    Returns:
+        Dict[str, Any]:
+            Raw `BulkFixedInfrastructureDataQueryItem` sample data as a dictionary.
+    """
+    raw_bulk_fixed_infrastructure_data_query_item: Dict[str, Any] = load_json_fixture(
+        "bulk_downloads/bulk_fixed_infrastructure_data_query_item.json"
+    )
+    return raw_bulk_fixed_infrastructure_data_query_item

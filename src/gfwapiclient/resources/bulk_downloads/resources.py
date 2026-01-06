@@ -49,6 +49,16 @@ from gfwapiclient.resources.bulk_downloads.list.models.request import (
 from gfwapiclient.resources.bulk_downloads.list.models.response import (
     BulkReportListResult,
 )
+from gfwapiclient.resources.bulk_downloads.query.endpoints import (
+    BulkFixedInfrastructureDataQueryEndPoint,
+)
+from gfwapiclient.resources.bulk_downloads.query.models.base.request import (
+    BULK_REPORT_QUERY_PARAMS_VALIDATION_ERROR_MESSAGE,
+    BulkReportQueryParams,
+)
+from gfwapiclient.resources.bulk_downloads.query.models.fixed_infrastructure_data.response import (
+    BulkFixedInfrastructureDataQueryResult,
+)
 
 
 __all__ = ["BulkDownloadResource"]
@@ -354,6 +364,93 @@ class BulkDownloadResource(BaseResource):
         result: BulkReportFileResult = await endpoint.request()
         return result
 
+    async def query_bulk_fixed_infrastructure_data_report(
+        self,
+        *,
+        id: str,
+        limit: Optional[int] = None,
+        offset: Optional[int] = None,
+        sort: Optional[str] = None,
+        includes: Optional[List[str]] = None,
+        **kwargs: Dict[str, Any],
+    ) -> BulkFixedInfrastructureDataQueryResult:
+        """Get bulk fixed infrastructure data report in JSON Format.
+
+        Retrieves data records of a previously created fixed infrastructure data (i.e.,
+        `public-fixed-infrastructure-data:latest` dataset) bulk report data in JSON format
+        based on specified pagination, sorting, and including criteria.
+
+        For detailed information about the Query Bulk Report API endpoint, please
+        refer to the official Global Fishing Watch API documentation:
+
+        See: https://globalfishingwatch.org/our-apis/documentation#get-data-in-json-format
+
+        For more details on the Query Bulk Report data caveats, please refer to the
+        official Global Fishing Watch API documentation:
+
+        See: https://globalfishingwatch.org/our-apis/documentation#sar-fixed-infrastructure-data-caveats
+
+        Args:
+            id (str):
+                Unique identifier (ID) of the bulk report.
+                Example: `"adbb9b62-5c08-4142-82e0-b2b575f3e058"`.
+
+            limit (Optional[int], default=99999):
+                Maximum number of bulk report records to return. Defaults to `99999`.
+                Example: `99999`.
+
+            offset (Optional[int], default=0):
+                Number of bulk report records to skip before returning results.
+                Defaults to `0`.
+                Example: `0`.
+
+            sort (Optional[str], default=None):
+                Property to sort the bulk report records by. Defaults to `None`.
+                Allowed fields: `"detection_date"`, `"structure_start_date"`,
+                `"structure_end_date"`, `"label"`, `"label_confidence"`. Use `-` prefix
+                for descending order.
+                Example: `"-structure_start_date"`.
+
+            includes (Optional[List[str]], default=None):
+                List of bulk report record fields to include in the result.
+                Defaults to `None`.
+                Allowed values: `"detection_id"`, `"detection_date"`, `"structure_id"`,
+                `"lon"`, `"lat"`, `"structure_start_date"`, `"structure_end_date"`,
+                `"label"`, `"label_confidence"`.
+                Example: `["structure_id", "lat", "lon", "label", "label_confidence"]`.
+
+            **kwargs (Dict[str, Any]):
+                Additional keyword arguments.
+
+        Returns:
+            BulkFixedInfrastructureDataQueryResult:
+                The result containing the list of bulk fixed infrastructure data report items.
+
+        Raises:
+            GFWAPIClientError:
+                If the API request fails.
+
+            RequestParamsValidationError:
+                If the request parameters are invalid.
+        """
+        request_params: BulkReportQueryParams = self._prepare_query_bulk_report_params(
+            limit=limit,
+            offset=offset,
+            sort=sort,
+            includes=includes,
+        )
+
+        endpoint: BulkFixedInfrastructureDataQueryEndPoint = (
+            BulkFixedInfrastructureDataQueryEndPoint(
+                bulk_report_id=id,
+                request_params=request_params,
+                http_client=self._http_client,
+            )
+        )
+
+        result: BulkFixedInfrastructureDataQueryResult = await endpoint.request()
+        return result
+
     def _prepare_create_bulk_report_request_body(
         self,
         *,
@@ -427,6 +524,33 @@ class BulkDownloadResource(BaseResource):
         except pydantic.ValidationError as exc:
             raise RequestParamsValidationError(
                 message=BULK_REPORT_FILE_PARAMS_VALIDATION_ERROR_MESSAGE,
+                error=exc,
+            ) from exc
+
+        return request_params
+
+    def _prepare_query_bulk_report_params(
+        self,
+        *,
+        limit: Optional[int] = None,
+        offset: Optional[int] = None,
+        sort: Optional[str] = None,
+        includes: Optional[List[str]] = None,
+    ) -> BulkReportQueryParams:
+        """Prepare and return query bulk report request parameters."""
+        try:
+            _request_params: Dict[str, Any] = {
+                "limit": limit or 99999,
+                "offset": offset or 0,
+                "sort": sort or None,
+                "includes": includes or None,
+            }
+            request_params: BulkReportQueryParams = BulkReportQueryParams(
+                **_request_params
+            )
+        except pydantic.ValidationError as exc:
+            raise RequestParamsValidationError(
+                message=BULK_REPORT_QUERY_PARAMS_VALIDATION_ERROR_MESSAGE,
                 error=exc,
             ) from exc
 

@@ -1,0 +1,11 @@
+{
+    "detection_id": "S1AB_AD_MEDIAN_COMP_20210402T000000_20210929T000000_WEST_64_TILE_208;-151.608850;60.8645440",
+    "detection_date": "2021-07-01",
+    "structure_id": "162013",
+    "lon": -151.608786096245,
+    "lat": 60.8646485096125,
+    "structure_start_date": "2017-01-01",
+    "structure_end_date": "2021-10-01",
+    "label": "oil",
+    "label_confidence": "high"
+}
