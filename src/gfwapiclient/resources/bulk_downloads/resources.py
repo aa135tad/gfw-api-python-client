@@ -423,7 +423,7 @@ class BulkDownloadResource(BaseResource):
                 Additional keyword arguments.
 
         Returns:
-            FixedInfrastructureDataResult:
+            BulkFixedInfrastructureDataQueryResult:
                 The result containing the list of bulk fixed infrastructure data report items.
 
         Raises:

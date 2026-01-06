@@ -91,7 +91,7 @@ class BulkFixedInfrastructureDataQueryItem(BulkReportQueryItem):
                 The value to validate.
 
         Returns:
-            Optional[datetime.datetime]:
+            Optional[Any]:
                 The validated datetime object or `None` if input is empty.
         """
         if isinstance(value, str) and value.strip() == "":
@@ -113,10 +113,10 @@ class BulkFixedInfrastructureDataQueryResult(
     See: https://globalfishingwatch.org/our-apis/documentation#get-data-in-json-format
 
     Attributes:
-        _result_item_class (Type[FixedInfrastructureDataItem]):
+        _result_item_class (Type[BulkFixedInfrastructureDataQueryItem]):
             The model used for individual result items.
 
-        _data (List[FixedInfrastructureDataItem]):
+        _data (List[BulkFixedInfrastructureDataQueryItem]):
             The bulk fixed infrastructure data report items returned in the response.
     """
 
@@ -127,7 +127,7 @@ class BulkFixedInfrastructureDataQueryResult(
         """Initializes a new `FixedInfrastructureDataResult`.
 
         Args:
-            data (List[FixedInfrastructureDataItem]):
+            data (List[BulkFixedInfrastructureDataQueryItem]):
                 The list of bulk fixed infrastructure data report items.
         """
         super().__init__(data=data)
