@@ -8,7 +8,7 @@ This guide provides detailed instructions on how to use the [gfw-api-python-clie
 
 ## Prerequisites
 
-- You have installed the `gfw-api-python-client`. Refer to the [Getting Started](../getting-started) guide for installation instructions.
+- Before using the `gfw-api-python-client`, ensure it is installed (see the [Getting Started](../getting-started) guide) and that you have obtained an API access token from the [Global Fishing Watch API portal](https://globalfishingwatch.org/our-apis/tokens).
 
 - You will need a valid `Vessel ID` to retrieve insights for a specific vessel. You can obtain these IDs using the [Vessels API](vessels-api).
 
