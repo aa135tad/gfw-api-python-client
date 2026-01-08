@@ -41,8 +41,10 @@ the official Global Fishing Watch API documentation:
 
 See: https://globalfishingwatch.org/our-apis/documentation#introduction
 
-For more details on the data caveats and terms of use, please refer to the
+For more details on the datasets, data caveats and terms of use, please refer to the
 official Global Fishing Watch API documentation:
+
+See: https://globalfishingwatch.org/our-apis/documentation#api-dataset
 
 See: https://globalfishingwatch.org/our-apis/documentation#data-caveat
 
