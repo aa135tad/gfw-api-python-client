@@ -4,11 +4,11 @@
 
 This guide provides detailed instructions on how to use the [gfw-api-python-client](https://github.com/GlobalFishingWatch/gfw-api-python-client) to access aggregated insights about vessel activities. Currently, the Insights API focuses on providing summaries related to specific vessels over a defined time range. Here is a [Jupyter Notebook](https://github.com/GlobalFishingWatch/gfw-api-python-client/blob/develop/notebooks/usage-guides/insights-api.ipynb) version of this guide with more usage examples.
 
-> **Note:** See the [Insights Data Caveats](https://globalfishingwatch.org/our-apis/documentation#insights-api-fishing-detected-in-no-take-mpas)—it is critical to avoid misinterpreting the insights. You can find the [Terms of Use](https://globalfishingwatch.org/our-apis/documentation#terms-of-use) page in the [GFW API documentation](https://globalfishingwatch.org/our-apis/documentation#introduction), for details on GFW data, API licenses, and rate limits.
+> **Note:** See the [Insights Data Caveats](https://globalfishingwatch.org/our-apis/documentation#insights-api-fishing-detected-in-no-take-mpas)—it is critical to avoid misinterpreting the insights. You can find the [Datasets](https://globalfishingwatch.org/our-apis/documentation#api-dataset), and [Terms of Use](https://globalfishingwatch.org/our-apis/documentation#terms-of-use) pages in the [GFW API documentation](https://globalfishingwatch.org/our-apis/documentation#introduction) for details on GFW data, API licenses, and rate limits.
 
 ## Prerequisites
 
-- You have installed the `gfw-api-python-client`. Refer to the [Getting Started](../getting-started) guide for installation instructions.
+- Before using the `gfw-api-python-client`, ensure it is installed (see the [Getting Started](../getting-started) guide) and that you have obtained an API access token from the [Global Fishing Watch API portal](https://globalfishingwatch.org/our-apis/tokens).
 
 - You will need a valid `Vessel ID` to retrieve insights for a specific vessel. You can obtain these IDs using the [Vessels API](vessels-api).
 

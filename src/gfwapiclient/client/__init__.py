@@ -1,17 +1,19 @@
 """Global Fishing Watch (GFW) API Python Client.
 
-This module provides the main entry point for interacting with the Global Fishing Watch (GFW) API, specifically Version 3.
-It encapsulates the HTTP client and resources, providing a unified interface
-for accessing GFW's data.
+This module provides the main entry point for interacting with the
+Global Fishing Watch (GFW) API, specifically Version 3. It encapsulates the HTTP client
+and resources, providing a unified interface for accessing GFW's data.
 
-For more details on the GFW API and available data, please refer to the
-official documentation:
+For more details on the GFW API and available data, please refer to the official
+Global Fishing Watch API documentation:
 
 See: https://globalfishingwatch.org/our-apis/documentation#introduction
 
 See: https://globalfishingwatch.org/our-apis/documentation#data-available
 
-See: https://globalfishingwatch.org/our-apis/documentation#version-3-api
+See: https://globalfishingwatch.org/our-apis/documentation#api-dataset
+
+See: https://globalfishingwatch.org/our-apis/documentation#data-caveat
 """
 
 from gfwapiclient.client.client import Client

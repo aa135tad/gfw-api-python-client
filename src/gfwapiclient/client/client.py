@@ -38,6 +38,8 @@ class Client:
 
     See: https://globalfishingwatch.org/our-apis/documentation#data-available
 
+    See: https://globalfishingwatch.org/our-apis/documentation#api-dataset
+
     See: https://globalfishingwatch.org/our-apis/documentation#data-caveat
 
     Attributes:
