@@ -42,10 +42,13 @@ For more detailed installation instructions, including setting up a virtual envi
 
 ## Basic Usage
 
+<a href="https://colab.research.google.com/github/GlobalFishingWatch/gfw-api-python-client/blob/develop/notebooks/getting-started.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
 Once installed, you can import and use `gfw-api-python-client` in your Python codes:
 
 ```python
 import os
+import datetime
 
 import gfwapiclient as gfw
 
@@ -66,15 +69,38 @@ gfw_client = gfw.Client(
 
 ```python
 vessel_search_result = await gfw_client.vessels.search_vessels(
-    query="368045130",
-    datasets=["public-global-vessel-identity:latest"],
-    includes=["MATCH_CRITERIA", "OWNERSHIP", "AUTHORIZATIONS"],
+    query="412331038",
 )
 
-vessel_ids = [
+vessel_search_ids = [
     self_reported_info.id
-    for vessel in vessel_search_result.data()
-    for self_reported_info in vessel.self_reported_info
+    for vessel_search_item in vessel_search_result.data()
+    if vessel_search_item.registry_info_total_records >= 1
+    for self_reported_info in vessel_search_item.self_reported_info
+]
+
+print(vessel_search_ids)
+```
+
+**Output:**
+
+```
+['755a48dd4-4bee-4bcf-7b5f-9baea058fc7b', '3dad49b0b-b2e0-9347-0c4c-e39fea560f9f']
+```
+
+**Note:** It is recommended to prioritize vessels that include both `registry_info` and `self_reported_info` (AIS), as this indicates a successful match between registry data and AIS information.
+
+### Getting Details of Vessels Filtered by Vessel Searched IDs
+
+```python
+vessels_result = await gfw_client.vessels.get_vessels_by_ids(
+    ids=vessel_search_ids,
+)
+
+vessel_self_reported_infos = [
+    self_reported_info
+    for vessel_item in vessels_result.data()
+    for self_reported_info in vessel_item.self_reported_info
 ]
 
 print(vessel_ids)
@@ -83,16 +109,85 @@ print(vessel_ids)
 **Output:**
 
 ```
-["3312b30d6-65b6-1bdb-6a78-3f5eb3977e58", "126221ace-e3b5-f4ed-6150-394809737c55"]
+['755a48dd4-4bee-4bcf-7b5f-9baea058fc7b', '3dad49b0b-b2e0-9347-0c4c-e39fea560f9f']
 ```
 
-### Getting Fishing Events for the Searched Vessels
+### Getting Insights Related to Fishing Events for the Vessel Searched
+
+**Important:** `start_date` must be on or after `January 1, 2020`
+
+```python
+start_datetime = min(
+    [
+        self_reported_info.transmission_date_from
+        for self_reported_info in vessel_self_reported_infos
+    ]
+)
+start_date = start_datetime.date()
+
+
+end_datetime = max(
+    [
+        self_reported_info.transmission_date_to
+        for self_reported_info in vessel_self_reported_infos
+    ]
+)
+end_date = end_datetime.date()
+
+dataset_id = "public-global-vessel-identity:latest"
+dataset_ids_vessel_ids = [
+    {"dataset_id": dataset_id, "vessel_id": vessel_id} for vessel_id in vessel_ids
+]
+
+insights_result = await gfw_client.insights.get_vessel_insights(
+    includes=["FISHING"],
+    start_date=start_date,
+    end_date=end_date,
+    vessels=dataset_ids_vessel_ids,
+)
+
+insights_df = insights_result.df()
+
+print(insights_df.info())
+```
+
+**Output:**
+
+```
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 1 entries, 0 to 0
+Data columns (total 6 columns):
+ #   Column                       Non-Null Count  Dtype
+---  ------                       --------------  -----
+ 0   period                       1 non-null      object
+ 1   vessel_ids_without_identity  0 non-null      object
+ 2   gap                          0 non-null      object
+ 3   coverage                     0 non-null      object
+ 4   apparent_fishing             1 non-null      object
+ 5   vessel_identity              0 non-null      object
+dtypes: object(6)
+memory usage: 180.0+ bytes
+```
+
+```python
+insights_data = insights_result.data()
+
+print(dict(insights_data.apparent_fishing.period_selected_counters))
+```
+
+**Output:**
+
+```
+{'events': 398, 'events_gap_off': None, 'events_in_rfmo_without_known_authorization': 144, 'events_in_no_take_mpas': 0}
+```
+
+### Getting Fishing Events for the Vessels Searched
 
 ```python
 events_result = await gfw_client.events.get_all_events(
     datasets=["public-global-fishing-events:latest"],
-    start_date="2024-03-01",
-    end_date="2025-03-31",
+    start_date=start_date,
+    end_date=end_date,
     vessels=vessel_ids,
 )
 
@@ -101,30 +196,30 @@ events_df = events_result.df()
 print(events_df.info())
 ```
 
-Output:
+**Output:**
 
 ```
 <class 'pandas.core.frame.DataFrame'>
-RangeIndex: 3 entries, 0 to 2
+RangeIndex: 398 entries, 0 to 397
 Data columns (total 14 columns):
  #   Column        Non-Null Count  Dtype
 ---  ------        --------------  -----
- 0   start         3 non-null      datetime64[ns, UTC]
- 1   end           3 non-null      datetime64[ns, UTC]
- 2   id            3 non-null      object
- 3   type          3 non-null      object
- 4   position      3 non-null      object
- 5   regions       3 non-null      object
- 6   bounding_box  3 non-null      object
- 7   distances     3 non-null      object
- 8   vessel        3 non-null      object
+ 0   start         398 non-null    datetime64[ns, UTC]
+ 1   end           398 non-null    datetime64[ns, UTC]
+ 2   id            398 non-null    object
+ 3   type          398 non-null    object
+ 4   position      398 non-null    object
+ 5   regions       398 non-null    object
+ 6   bounding_box  398 non-null    object
+ 7   distances     398 non-null    object
+ 8   vessel        398 non-null    object
  9   encounter     0 non-null      object
- 10  fishing       3 non-null      object
+ 10  fishing       398 non-null    object
  11  gap           0 non-null      object
  12  loitering     0 non-null      object
  13  port_visit    0 non-null      object
 dtypes: datetime64[ns, UTC](2), object(12)
-memory usage: 468.0+ bytes
+memory usage: 43.7+ KB
 ```
 
 ## Next Steps

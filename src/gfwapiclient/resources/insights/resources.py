@@ -44,7 +44,7 @@ class InsightResource(BaseResource):
         Args:
             includes (Union[List[VesselInsightInclude], List[str]]):
                 List of insight types to include in the response.
-                Allowed values are `"FISHING"`, `"GAP"`, `"COVERAGE"`, `"IDENTITY"`.
+                Allowed values are `"FISHING"`, `"GAP"`, `"COVERAGE"`, `"VESSEL-IDENTITY-IUU-VESSEL-LIST"`.
                 Example: `["FISHING", "GAP"]`.
 
             start_date (Union[datetime.date, str]):
