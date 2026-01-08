@@ -227,7 +227,7 @@ class FourWingsResource(BaseResource):
 
             group_by (Optional[Union[FourWingsReportGroupBy, str]], default=None):
                 Grouping criteria for the report. Defaults to `None`.
-                Allowed values: `"VESSEL_ID"`, `"FLAG"`, `"GEARTYPE"`, `"FLAGANDGEARTYPE"`, `"MMSI"`.
+                Allowed values: `"VESSEL_ID"`, `"FLAG"`, `"MMSI"`.
                 Example: `"FLAG"`.
 
             temporal_resolution (Optional[Union[FourWingsReportTemporalResolution, str]], default="HOURLY"):
@@ -462,6 +462,11 @@ class FourWingsResource(BaseResource):
         AIS vessel presence is one of the largest datasets available. To prevent timeouts
         and ensure optimal performance, keep requests manageable: prefer simple, small
         regions and shorter time ranges (e.g., a few days).
+
+        **Note:**
+
+        AIS vessel presence (i.e., `"public-global-sar-presence:latest"` dataset) does **not**
+        support `"GEARTYPE"` or `"FLAGANDGEARTYPE"` as `group_by` criteria.
 
         Args:
             spatial_resolution (Optional[Union[FourWingsReportSpatialResolution, str]], default="HIGH"):
