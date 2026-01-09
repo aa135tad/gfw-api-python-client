@@ -14,6 +14,7 @@ The `gfw-api-python-client` simplifies access to Global Fishing Watch (GFW) data
 getting-started
 installation
 usage-guides/index
+workflow-guides/index
 ```
 
 ```{toctree}
@@ -49,6 +50,10 @@ To learn about how to use `gfw-api-python-client`, check out the following resou
     - [Insights API](usage-guides/insights-api)
     - [Datasets API](usage-guides/datasets-api)
     - [References Data API](usage-guides/references-data-api)
+- [Workflow Guides](workflow-guides/index)
+    - [Analyze apparent fishing effort in Senegalese EEZ](workflow-guides/workflow-01-analyze-apparent-fishing-effort-senegalese-eez)
+    - [Analyze apparent fishing effort in Argentinian EEZ](workflow-guides/workflow-02-analyze-apparent-fishing-effort-argentinian-eez)
+    - [Analyze a fleet in Ghanaian EEZ](workflow-guides/workflow-03-analyze-fleet-in-ghanaian-eez)
 
 If you find bugs, need help, or want to contribute, check out the following resources:
 

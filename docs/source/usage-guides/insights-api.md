@@ -98,7 +98,7 @@ memory usage: 180.0+ bytes
 
 ## Next Steps
 
-Explore the [Usage Guides](index) for other API resources to understand how you can combine vessel insights with event data, vessel details, and more. Check out the following resources:
+Explore the [Usage Guides](index) and [Workflow Guides](../workflow-guides/index) for other API resources to understand how you can combine vessel insights with event data, vessel details, and more. Check out the following resources:
 
 - [Vessels API](vessels-api)
 - [Events API](events-api)

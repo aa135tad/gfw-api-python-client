@@ -219,7 +219,7 @@ Please be aware that the accuracy and completeness of the event data can vary. R
 
 ## Next Steps
 
-Explore the [Usage Guides](index) for other API resources to understand how you can combine event data with information about vessels, and more. Check out the following resources:
+Explore the [Usage Guides](index) and [Workflow Guides](../workflow-guides/index) for other API resources to understand how you can combine event data with information about vessels, and more. Check out the following resources:
 
 - [4Wings API](4wings-api)
 - [Vessels API](vessels-api)

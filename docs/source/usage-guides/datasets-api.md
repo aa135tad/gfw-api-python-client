@@ -169,7 +169,7 @@ memory usage: 60.6+ KB
 
 ## Next Steps
 
-Explore the [Usage Guides](index) for other API resources. Check out the following resources:
+Explore the [Usage Guides](index) and [Workflow Guides](../workflow-guides/index) for other API resources. Check out the following resources:
 
 - [4Wings API](4wings-api)
 - [Vessels API](vessels-api)
