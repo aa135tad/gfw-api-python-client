@@ -39,7 +39,6 @@ The `search_vessels()` method allows you to find vessels based on a query and va
 ```python
 vessel_search_result = await gfw_client.vessels.search_vessels(
     where="ssvid='775998121' AND shipname='DON TITO'",
-    datasets=["public-global-vessel-identity:latest"],
     includes=["MATCH_CRITERIA", "OWNERSHIP"],
 )
 ```
@@ -56,7 +55,7 @@ print(vessel.model_dump())
 **Output:**
 
 ```
-('public-global-vessel-identity:v3.0', 'bae8f325c-cf0a-01fe-6d1a-9a275588d4ff')
+('public-global-vessel-identity:v3.0', 'c54923e64-46f3-9338-9dcb-ff09724077a3')
 ```
 
 ### Access the vessels as a DataFrame
@@ -98,7 +97,6 @@ vessels_result = await gfw_client.vessels.get_vessels_by_ids(
         "6583c51e3-3626-5638-866a-f47c3bc7ef7c",
         "71e7da672-2451-17da-b239-857831602eca",
     ],
-    datasets=["public-global-vessel-identity:latest"],
 )
 ```
 
@@ -114,7 +112,7 @@ print(vessel.model_dump())
 **Output:**
 
 ```
-('public-global-vessel-identity:v3.0', '0cb77880e-ee49-2ce4-a849-c0b413b6ec89')
+('public-global-vessel-identity:v3.0', 'aca119c29-95dd-f5c4-2057-ee45268dcd6f')
 ```
 
 ### Access the vessels as a DataFrame
@@ -151,7 +149,6 @@ The `get_vessel_by_id()` method retrieves detailed information for a specific ve
 ```python
 vessel_result = await gfw_client.vessels.get_vessel_by_id(
     id="c54923e64-46f3-9338-9dcb-ff09724077a3",
-    dataset="public-global-vessel-identity:latest",
 )
 ```
 

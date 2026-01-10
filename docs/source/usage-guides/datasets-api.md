@@ -80,19 +80,19 @@ print(sar_infrastructure_df.head())
 
 ```
 <class 'pandas.core.frame.DataFrame'>
-RangeIndex: 1106 entries, 0 to 1105
+RangeIndex: 1156 entries, 0 to 1155
 Data columns (total 7 columns):
  #   Column                Non-Null Count  Dtype
 ---  ------                --------------  -----
- 0   structure_id          1106 non-null   int64
- 1   lat                   1106 non-null   float64
- 2   lon                   1106 non-null   float64
- 3   label                 1106 non-null   object
- 4   structure_start_date  1106 non-null   datetime64[ns, UTC]
- 5   structure_end_date    831 non-null    datetime64[ns, UTC]
- 6   label_confidence      1106 non-null   object
+ 0   structure_id          1156 non-null   int64
+ 1   lat                   1156 non-null   float64
+ 2   lon                   1156 non-null   float64
+ 3   label                 1156 non-null   object
+ 4   structure_start_date  1156 non-null   datetime64[ns, UTC]
+ 5   structure_end_date    857 non-null    datetime64[ns, UTC]
+ 6   label_confidence      1156 non-null   object
 dtypes: datetime64[ns, UTC](2), float64(2), int64(1), object(2)
-memory usage: 60.6+ KB
+memory usage: 63.3+ KB
 ```
 
 ## Retrieving SAR Fixed Infrastructure Data by Geometry (`get_sar_fixed_infrastructure` with geometry)
@@ -152,19 +152,19 @@ print(sar_infrastructure_df.head())
 
 ```
 <class 'pandas.core.frame.DataFrame'>
-RangeIndex: 1106 entries, 0 to 1105
+RangeIndex: 1156 entries, 0 to 1155
 Data columns (total 7 columns):
  #   Column                Non-Null Count  Dtype
 ---  ------                --------------  -----
- 0   structure_id          1106 non-null   int64
- 1   lat                   1106 non-null   float64
- 2   lon                   1106 non-null   float64
- 3   label                 1106 non-null   object
- 4   structure_start_date  1106 non-null   datetime64[ns, UTC]
- 5   structure_end_date    831 non-null    datetime64[ns, UTC]
- 6   label_confidence      1106 non-null   object
+ 0   structure_id          1156 non-null   int64
+ 1   lat                   1156 non-null   float64
+ 2   lon                   1156 non-null   float64
+ 3   label                 1156 non-null   object
+ 4   structure_start_date  1156 non-null   datetime64[ns, UTC]
+ 5   structure_end_date    857 non-null    datetime64[ns, UTC]
+ 6   label_confidence      1156 non-null   object
 dtypes: datetime64[ns, UTC](2), float64(2), int64(1), object(2)
-memory usage: 60.6+ KB
+memory usage: 63.3+ KB
 ```
 
 ## Next Steps

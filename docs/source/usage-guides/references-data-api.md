@@ -52,8 +52,8 @@ print(eez_region.model_dump())
 **Output:**
 
 ```
-(26523, 'public-eez-areas')
-{'id': 26523, 'label': 'Turkmenistan', 'iso3': 'TKM', 'dataset': 'public-eez-areas'}
+(48999, 'public-eez-areas')
+{'id': 48999, 'label': 'Overlapping claim Peñón de Vélez de la Gomera: Spain / Morocco', 'iso3': None, 'dataset': 'public-eez-areas'}
 ```
 
 ### Access the EEZ regions as a DataFrame
@@ -67,17 +67,17 @@ print(eez_regions_df[["id", "dataset"]].head())
 **Output:**
 
 ```
-class 'pandas.core.frame.DataFrame'>
-RangeIndex: 282 entries, 0 to 281
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 285 entries, 0 to 284
 Data columns (total 4 columns):
- #   Column   Non-Null Count  Dtype
----  ------   --------------  -----
- 0   id       281 non-null    float64
- 1   label    282 non-null    object
- 2   iso3     282 non-null    object
- 3   dataset  282 non-null    object
-dtypes: float64(1), object(3)
-memory usage: 8.9+ KB
+ #   Column      Non-Null Count  Dtype
+---  ------      --------------  -----
+ 0   id          285 non-null    int64
+ 1   label       285 non-null    object
+ 2   iso3        234 non-null    object
+ 3   dataset     285 non-null    object
+dtypes: int64(1), object(3)
+memory usage: 17.9+ KB
 ```
 
 ## Retrieving Marine Protected Areas (MPAs)
@@ -100,8 +100,8 @@ print(mpa_region.model_dump())
 **Output:**
 
 ```
-('555790281', 'public-mpa-all')
-{'id': '555790281', 'label': 'Iles Barren - Aire protegee', 'name': 'Iles Barren', 'dataset': 'public-mpa-all'}
+('555799979', 'public-mpa-all')
+{'id': '555799979', 'label': 'NAF Marine Protected Area - Marine Protected Area', 'name': None, 'dataset': 'public-mpa-all'}
 ```
 
 ### Access the MPA regions as a DataFrame
@@ -116,16 +116,16 @@ print(mpa_regions_df[["id", "dataset"]].head())
 
 ```
 <class 'pandas.core.frame.DataFrame'>
-RangeIndex: 16621 entries, 0 to 16620
+RangeIndex: 16591 entries, 0 to 16590
 Data columns (total 4 columns):
  #   Column   Non-Null Count  Dtype
 ---  ------   --------------  -----
- 0   id       16621 non-null  object
- 1   label    16621 non-null  object
- 2   name     16621 non-null  object
- 3   dataset  16621 non-null  object
+ 0   id       16591 non-null  object
+ 1   label    16591 non-null  object
+ 2   name     0 non-null      object
+ 3   dataset  16591 non-null  object
 dtypes: object(4)
-memory usage: 519.5+ K
+memory usage: 518.6+ KB
 ```
 
 ## Retrieving Regional Fisheries Management Organizations (RFMOs)
@@ -148,8 +148,9 @@ print(rfmo_region.model_dump())
 **Output:**
 
 ```
-('WCPFC', 'public-rfmo')
+('BOBP-IGO', 'public-rfmo')
 {'id': 'WCPFC', 'label': 'WCPFC', 'rfb': None, 'dataset': 'public-rfmo'}
+{'id': 'BOBP-IGO', 'label': 'BOBP-IGO', 'rfb': None, 'dataset': 'public-rfmo', 'ID': 'BOBP-IGO'}
 ```
 
 ### Access the RFMO regions as a DataFrame
@@ -165,15 +166,16 @@ print(rfmo_regions_df[["id", "dataset"]].head())
 ```
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 42 entries, 0 to 41
-Data columns (total 4 columns):
+Data columns (total 5 columns):
  #   Column   Non-Null Count  Dtype
 ---  ------   --------------  -----
  0   id       42 non-null     object
  1   label    42 non-null     object
- 2   rfb      35 non-null     object
+ 2   rfb      0 non-null      object
  3   dataset  42 non-null     object
-dtypes: object(4)
-memory usage: 1.4+ KB
+ 4   ID       42 non-null     object
+dtypes: object(5)
+memory usage: 1.8+ KB
 ```
 
 ## Next Steps

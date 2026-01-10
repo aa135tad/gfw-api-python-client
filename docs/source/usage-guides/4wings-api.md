@@ -293,7 +293,11 @@ report_result = await gfw_client.fourwings.create_report(
     spatial_resolution="LOW",
     temporal_resolution="MONTHLY",
     group_by="FLAG",
-    datasets=["public-global-fishing-effort:latest"],
+    datasets=[
+        "public-global-fishing-effort:latest",
+        "public-global-sar-presence:latest",
+        "public-global-presence:latest",
+    ],
     start_date="2022-01-01",
     end_date="2022-05-01",
     region={
@@ -324,7 +328,7 @@ print(report_item.model_dump())
 **Output:**
 
 ```
-('2022-03', 'RUS', 7.109166666666667, 3, 75.8, 44.0)
+('2022-03', 'RUS', 1.0, 1, 52.1, 153.2)
 ```
 
 ### Access the report data as a DataFrame
@@ -340,32 +344,32 @@ print(report_df[["date", "flag", "hours", "lat", "lon"]].head())
 
 ```
 <class 'pandas.core.frame.DataFrame'>
-RangeIndex: 32271 entries, 0 to 32270
+RangeIndex: 310599 entries, 0 to 310598
 Data columns (total 20 columns):
- #   Column                   Non-Null Count  Dtype
----  ------                   --------------  -----
- 0   date                     32271 non-null  object
- 1   detections               0 non-null      object
- 2   flag                     32271 non-null  object
- 3   gear_type                0 non-null      object
- 4   hours                    32271 non-null  float64
- 5   vessel_ids               32271 non-null  int64
- 6   vessel_id                0 non-null      object
- 7   vessel_type              0 non-null      object
- 8   entry_timestamp          0 non-null      object
- 9   exit_timestamp           0 non-null      object
- 10  first_transmission_date  0 non-null      object
- 11  last_transmission_date   0 non-null      object
- 12  imo                      0 non-null      object
- 13  mmsi                     0 non-null      object
- 14  call_sign                0 non-null      object
- 15  dataset                  0 non-null      object
- 16  report_dataset           32271 non-null  object
- 17  ship_name                0 non-null      object
- 18  lat                      32271 non-null  float64
- 19  lon                      32271 non-null  float64
-dtypes: float64(3), int64(1), object(16)
-memory usage: 4.9+ MB
+ #   Column                   Non-Null Count   Dtype
+---  ------                   --------------   -----
+ 0   date                     310599 non-null  object
+ 1   detections               3995 non-null    float64
+ 2   flag                     310599 non-null  object
+ 3   gear_type                0 non-null       object
+ 4   hours                    306604 non-null  float64
+ 5   vessel_ids               310599 non-null  int64
+ 6   vessel_id                0 non-null       object
+ 7   vessel_type              0 non-null       object
+ 8   entry_timestamp          0 non-null       object
+ 9   exit_timestamp           0 non-null       object
+ 10  first_transmission_date  0 non-null       object
+ 11  last_transmission_date   0 non-null       object
+ 12  imo                      0 non-null       object
+ 13  mmsi                     0 non-null       object
+ 14  call_sign                0 non-null       object
+ 15  dataset                  0 non-null       object
+ 16  report_dataset           310599 non-null  object
+ 17  ship_name                0 non-null       object
+ 18  lat                      310599 non-null  float64
+ 19  lon                      310599 non-null  float64
+dtypes: float64(4), int64(1), object(15)
+memory usage: 47.4+ MB
 ```
 
 ## Reference Data

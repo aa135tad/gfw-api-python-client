@@ -45,7 +45,7 @@ events_result = await gfw_client.events.get_all_events(
         "dataset": "public-eez-areas",
         "id": "8371",
     },
-    limit=1,
+    limit=5,
 )
 ```
 
@@ -61,7 +61,7 @@ print(event.model_dump())
 **Output:**
 
 ```
-('a0f5848d1a83b7f0b4b8cda6873699ba', 'fishing', '9e01144bf-f383-e634-3178-ca7e34477f34')
+('bbbf5d0cfa9639e5eac0130fc2b742e9', 'fishing', '7374d1988-87f8-6037-66b4-59854a026efb')
 ```
 
 ### Access the events as a DataFrame
@@ -76,26 +76,26 @@ print(events_df[["id", "type"]].head())
 
 ```
 <class 'pandas.core.frame.DataFrame'>
-RangeIndex: 1 entries, 0 to 0
+RangeIndex: 5 entries, 0 to 4
 Data columns (total 14 columns):
  #   Column        Non-Null Count  Dtype
 ---  ------        --------------  -----
- 0   start         1 non-null      datetime64[ns, UTC]
- 1   end           1 non-null      datetime64[ns, UTC]
- 2   id            1 non-null      object
- 3   type          1 non-null      object
- 4   position      1 non-null      object
- 5   regions       1 non-null      object
- 6   bounding_box  1 non-null      object
- 7   distances     1 non-null      object
- 8   vessel        1 non-null      object
+ 0   start         5 non-null      datetime64[ns, UTC]
+ 1   end           5 non-null      datetime64[ns, UTC]
+ 2   id            5 non-null      object
+ 3   type          5 non-null      object
+ 4   position      5 non-null      object
+ 5   regions       5 non-null      object
+ 6   bounding_box  5 non-null      object
+ 7   distances     5 non-null      object
+ 8   vessel        5 non-null      object
  9   encounter     0 non-null      object
- 10  fishing       1 non-null      object
+ 10  fishing       5 non-null      object
  11  gap           0 non-null      object
  12  loitering     0 non-null      object
  13  port_visit    0 non-null      object
 dtypes: datetime64[ns, UTC](2), object(12)
-memory usage: 244.0+ bytes
+memory usage: 692.0+ bytes
 ```
 
 ## Retrieving a Single Event by ID (`get_event_by_id`)
@@ -120,7 +120,7 @@ print(event.model_dump())
 **Output:**
 
 ```
-('a0f5848d1a83b7f0b4b8cda6873699ba', 'fishing', '9e01144bf-f383-e634-3178-ca7e34477f34')
+('c2f0967e061f99a01793edac065de003', 'port_visit', '8c7304226-6c71-edbe-0b63-c246734b3c01')
 ```
 
 ### Access the event as a DataFrame
@@ -149,10 +149,10 @@ Data columns (total 14 columns):
  7   distances     1 non-null      object
  8   vessel        1 non-null      object
  9   encounter     0 non-null      object
- 10  fishing       1 non-null      object
+ 10  fishing       0 non-null      object
  11  gap           0 non-null      object
  12  loitering     0 non-null      object
- 13  port_visit    0 non-null      object
+ 13  port_visit    1 non-null      object
 dtypes: datetime64[ns, UTC](2), object(12)
 memory usage: 244.0+ bytes
 ```
@@ -185,7 +185,7 @@ print(event_stat.model_dump())
 **Output:**
 
 ```
-(24786, 1, 194)
+(24770, 1, 196)
 ```
 
 ### Access the statistics as a DataFrame
