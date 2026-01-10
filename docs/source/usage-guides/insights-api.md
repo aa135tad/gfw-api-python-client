@@ -100,8 +100,9 @@ memory usage: 180.0+ bytes
 
 Explore the [Usage Guides](index) and [Workflow Guides](../workflow-guides/index) for other API resources to understand how you can combine vessel insights with event data, vessel details, and more. Check out the following resources:
 
+- [4Wings API](4wings-api)
 - [Vessels API](vessels-api)
 - [Events API](events-api)
-- [4Wings API](4wings-api)
 - [Datasets API](datasets-api)
+- [Bulk Download API](bulk-downloads-api)
 - [Reference Data API](references-data-api)

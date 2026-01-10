@@ -12,5 +12,6 @@ vessels-api
 events-api
 insights-api
 datasets-api
+bulk-downloads-api
 references-data-api
 ```

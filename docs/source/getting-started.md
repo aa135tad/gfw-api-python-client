@@ -231,6 +231,6 @@ memory usage: 43.7+ KB
 
 This guide has provided you with the fundamental steps to install and use the `gfw-api-python-client` for making basic API requests.
 
-To further explore the capabilities of our APIs (`4Wings`, `Vessels`, `Events`, `Insights`, `Datasets`, `References`, etc.), please refer to the detailed [Usage Guides](usage-guides/index) and [Workflow Guides](workflow-guides/index). These guides delve into specific use cases and demonstrate how to effectively leverage the `gfw-api-python-client` for your data exploration needs.
+To further explore the capabilities of our APIs (`4Wings`, `Vessels`, `Events`, `Insights`, `Datasets`, `Bulk Download`, `References`, etc.), please refer to the detailed [Usage Guides](usage-guides/index) and [Workflow Guides](workflow-guides/index). These guides delve into specific use cases and demonstrate how to effectively leverage the `gfw-api-python-client` for your data exploration needs.
 
 Happy coding and data exploring!

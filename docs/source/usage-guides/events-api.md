@@ -225,4 +225,5 @@ Explore the [Usage Guides](index) and [Workflow Guides](../workflow-guides/index
 - [Vessels API](vessels-api)
 - [Insights API](insights-api)
 - [Datasets API](datasets-api)
+- [Bulk Download API](bulk-downloads-api)
 - [Reference Data API](references-data-api)
