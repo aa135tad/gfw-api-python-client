@@ -2,7 +2,7 @@
 
 <a href="https://colab.research.google.com/github/GlobalFishingWatch/gfw-api-python-client/blob/develop/notebooks/usage-guides/references-data-api.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-This guide provides detailed instructions on how to use the [gfw-api-python-client](https://github.com/GlobalFishingWatch/gfw-api-python-client) to access reference data, specifically geographic regions. The Reference Data API offers access to static datasets, currently focusing on Exclusive Economic Zones (EEZs), Marine Protected Areas (MPAs), and Regional Fisheries Management Organizations (RFMOs). Here is a [Jupyter Notebook](https://github.com/GlobalFishingWatch/gfw-api-python-client/blob/develop/notebooks/usage-guides/references-data-api.ipynb) version of this guide with more usage examples.
+This guide provides detailed instructions on how to use the [gfw-api-python-client](https://github.com/GlobalFishingWatch/gfw-api-python-client) to access reference data, specifically geographic regions. The [Reference Data API](https://globalfishingwatch.org/our-apis/documentation#regions) offers access to static datasets, currently focusing on Exclusive Economic Zones (EEZs), Marine Protected Areas (MPAs), and Regional Fisheries Management Organizations (RFMOs). Here is a [Jupyter Notebook](https://github.com/GlobalFishingWatch/gfw-api-python-client/blob/develop/notebooks/usage-guides/references-data-api.ipynb) version of this guide with more usage examples.
 
 > **Note:** See the [Datasets](https://globalfishingwatch.org/our-apis/documentation#api-dataset), [Reference Data Caveats](https://globalfishingwatch.org/our-apis/documentation#reference-data), and [Terms of Use](https://globalfishingwatch.org/our-apis/documentation#terms-of-use) pages in the [GFW API documentation](https://globalfishingwatch.org/our-apis/documentation#introduction) for details on GFW data, API licenses, and rate limits.
 
@@ -31,6 +31,8 @@ gfw_client = gfw.Client(
 ```
 
 The `gfw_client.references` object provides methods to retrieve different types of geographic regions. Each of these methods returns a `result` object, which offers convenient ways to access the data as Pydantic models using `.data()` or as pandas DataFrames using `.df()`.
+
+> **Tip:** Use [IPython](https://ipython.readthedocs.io/en/stable/) or Python 3.11+ with `python -m asyncio` to run `gfw-api-python-client` code interactively, as these environments support executing `async` / `await` expressions directly in the console.
 
 ## Retrieving Exclusive Economic Zones (EEZs)
 

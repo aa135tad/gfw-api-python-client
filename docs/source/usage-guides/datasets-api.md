@@ -2,7 +2,7 @@
 
 <a href="https://colab.research.google.com/github/GlobalFishingWatch/gfw-api-python-client/blob/develop/notebooks/usage-guides/datasets-api.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-This guide provides detailed instructions on how to use the [gfw-api-python-client](https://github.com/GlobalFishingWatch/gfw-api-python-client) to access various datasets available through the Global Fishing Watch API. Currently, it focuses on retrieving SAR (Synthetic Aperture Radar) fixed infrastructure data. The Datasets API allows you to retrieve this information, either by specifying `tile coordinates` or a `geographic geometry`. Here is a [Jupyter Notebook](https://github.com/GlobalFishingWatch/gfw-api-python-client/blob/develop/notebooks/usage-guides/datasets-api.ipynb) version of this guide with more usage examples.
+This guide provides detailed instructions on how to use the [gfw-api-python-client](https://github.com/GlobalFishingWatch/gfw-api-python-client) to access various datasets available through the Global Fishing Watch API. Currently, it focuses on retrieving SAR (Synthetic Aperture Radar) fixed infrastructure data. The [Datasets API](https://globalfishingwatch.org/our-apis/documentation#datasets-api) allows you to retrieve this information, either by specifying `tile coordinates` or a `geographic geometry`. Here is a [Jupyter Notebook](https://github.com/GlobalFishingWatch/gfw-api-python-client/blob/develop/notebooks/usage-guides/datasets-api.ipynb) version of this guide with more usage examples.
 
 > **Note:** See the [Datasets](https://globalfishingwatch.org/our-apis/documentation#api-dataset), [SAR (Synthetic-Aperture Radar) Data Caveats](https://globalfishingwatch.org/our-apis/documentation#sar-fixed-infrastructure-data-caveats), and [Terms of Use](https://globalfishingwatch.org/our-apis/documentation#terms-of-use) pages in the [GFW API documentation](https://globalfishingwatch.org/our-apis/documentation#introduction) for details on GFW data, API licenses, and rate limits.
 
@@ -31,6 +31,8 @@ gfw_client = gfw.Client(
 ```
 
 The `gfw_client.datasets` object provides methods to retrieve data from various datasets. The `get_sar_fixed_infrastructure` method allows you to access SAR fixed infrastructure data. This method returns a `result` object, which offers convenient ways to access the data as Pydantic models using `.data()` or as pandas DataFrames using `.df()`.
+
+> **Tip:** Use [IPython](https://ipython.readthedocs.io/en/stable/) or Python 3.11+ with `python -m asyncio` to run `gfw-api-python-client` code interactively, as these environments support executing `async` / `await` expressions directly in the console.
 
 ## Retrieving SAR Fixed Infrastructure Data by Tile Coordinates (`get_sar_fixed_infrastructure` with z, x, y)
 

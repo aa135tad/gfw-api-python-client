@@ -63,6 +63,10 @@ gfw_client = gfw.Client(
 )
 ```
 
+> **Important:** The `gfw-api-python-client` is **async-first**: all API methods are asynchronous and must be executed using Python's `async` / `await` syntax. **Environments with built-in async support** (e.g., _Jupyter Notebook_, _Google Colab_, and async web frameworks such as _FastAPI_) can call client methods directly using `await`, with no additional setup. **Environments without built-in async support** (e.g., _plain Python scripts_, _Python modules_, or synchronous web frameworks such as _Flask_ and _Django_) must explicitly run asynchronous code using an event loop. This can be done with tools such as [`asyncio.run`](https://docs.python.org/3/library/asyncio.html), [`trio.run`](https://trio.readthedocs.io/en/stable/), [`anyio.run`](https://anyio.readthedocs.io/en/stable/), or framework-specific async integration.
+
+> **Tip:** Use [IPython](https://ipython.readthedocs.io/en/stable/) or Python 3.11+ with `python -m asyncio` to run `gfw-api-python-client` code interactively, as these environments support executing `async` / `await` expressions directly in the console.
+
 ## Making API Requests
 
 ### Searching for a Vessel by MMSI

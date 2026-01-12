@@ -2,7 +2,7 @@
 
 <a href="https://colab.research.google.com/github/GlobalFishingWatch/gfw-api-python-client/blob/develop/notebooks/usage-guides/vessels-api.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-This guide provides detailed instructions on how to use the [gfw-api-python-client](https://github.com/GlobalFishingWatch/gfw-api-python-client) to access information about vessels. The Vessels API allows you to search for vessels, retrieve lists of vessels by their IDs, and get detailed information for a specific vessel, drawing from various datasets like identity, authorizations, and ownership. Here is a [Jupyter Notebook](https://github.com/GlobalFishingWatch/gfw-api-python-client/blob/develop/notebooks/usage-guides/vessels-api.ipynb) version of this guide with more usage examples.
+This guide provides detailed instructions on how to use the [gfw-api-python-client](https://github.com/GlobalFishingWatch/gfw-api-python-client) to access information about vessels. The [Vessels API](https://globalfishingwatch.org/our-apis/documentation#vessels-api) allows you to search for vessels, retrieve lists of vessels by their IDs, and get detailed information for a specific vessel, drawing from various datasets like identity, authorizations, and ownership. Here is a [Jupyter Notebook](https://github.com/GlobalFishingWatch/gfw-api-python-client/blob/develop/notebooks/usage-guides/vessels-api.ipynb) version of this guide with more usage examples.
 
 > **Note:** See the [Datasets](https://globalfishingwatch.org/our-apis/documentation#api-dataset), [Vessel Data Caveats](https://globalfishingwatch.org/our-apis/documentation#vessel-api-vessel-identity-information), and [Terms of Use](https://globalfishingwatch.org/our-apis/documentation#terms-of-use) pages in the [GFW API documentation](https://globalfishingwatch.org/our-apis/documentation#introduction) for details on GFW data, API licenses, and rate limits.
 
@@ -31,6 +31,8 @@ gfw_client = gfw.Client(
 ```
 
 The `gfw_client.vessels` object provides methods to search for and retrieve vessel information. Each of these methods returns a `result` object, which offers convenient ways to access the data as Pydantic models using `.data()` or as pandas DataFrames using `.df()`.
+
+> **Tip:** Use [IPython](https://ipython.readthedocs.io/en/stable/) or Python 3.11+ with `python -m asyncio` to run `gfw-api-python-client` code interactively, as these environments support executing `async` / `await` expressions directly in the console.
 
 ## Searching for Vessels (`search_vessels`)
 

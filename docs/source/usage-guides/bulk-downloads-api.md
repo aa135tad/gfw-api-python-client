@@ -12,7 +12,7 @@ This guide provides detailed instructions on how to use the [gfw-api-python-clie
 
 ## Getting Started
 
-To interact with the 4Wings endpoints, you first need to instantiate the `gfw.Client` and then access the `fourwings` resource:
+To interact with the Bulk Download endpoints, you first need to instantiate the `gfw.Client` and then access the `bulk_downloads` resource:
 
 ```python
 import time
@@ -40,6 +40,8 @@ The `gfw_client.bulk_downloads` object provides methods to:
 - Query previously created bulk report data records in JSON format.
 
 These methods return a `result` object, which offers convenient ways to access the data as Pydantic models using `.data()` or as pandas DataFrames using `.df()`.
+
+> **Tip:** Use [IPython](https://ipython.readthedocs.io/en/stable/) or Python 3.11+ with `python -m asyncio` to run `gfw-api-python-client` code interactively, as these environments support executing `async` / `await` expressions directly in the console.
 
 ## Create a Bulk Report (`create_bulk_report`)
 
