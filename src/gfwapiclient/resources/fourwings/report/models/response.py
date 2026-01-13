@@ -132,7 +132,7 @@ class FourWingsReportItem(ResultItem):
                 The value to validate.
 
         Returns:
-            Optional[datetime.datetime]:
+            Optional[Any]:
                 The validated datetime object or `None` if input is empty.
         """
         if isinstance(value, str) and value.strip() == "":

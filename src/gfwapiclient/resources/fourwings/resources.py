@@ -87,8 +87,10 @@ class FourWingsResource(BaseResource):
         - Fleet management
         - Supply chain visibility
 
-        For more details on the 4Wings AIS apparent fishing effort data caveats,
+        For more details on the 4Wings AIS apparent fishing effort and its data caveats,
         please refer to the official Global Fishing Watch API documentation:
+
+        See: https://globalfishingwatch.org/our-apis/documentation#ais-apparent-fishing-effort
 
         See: https://globalfishingwatch.org/our-apis/documentation#apparent-fishing-effort
 
@@ -204,8 +206,10 @@ class FourWingsResource(BaseResource):
         - Fleet management
         - Supply chain visibility
 
-        For more details on the 4Wings AIS vessel presence data caveats,
+        For more details on the 4Wings AIS vessel presence and its data caveats,
         please refer to the official Global Fishing Watch API documentation:
+
+        See: https://globalfishingwatch.org/our-apis/documentation#ais-vessel-presence
 
         See: https://globalfishingwatch.org/our-apis/documentation#ais-vessel-presence-caveats
 
@@ -223,7 +227,7 @@ class FourWingsResource(BaseResource):
 
             group_by (Optional[Union[FourWingsReportGroupBy, str]], default=None):
                 Grouping criteria for the report. Defaults to `None`.
-                Allowed values: `"VESSEL_ID"`, `"FLAG"`, `"GEARTYPE"`, `"FLAGANDGEARTYPE"`, `"MMSI"`.
+                Allowed values: `"VESSEL_ID"`, `"FLAG"`, `"MMSI"`.
                 Example: `"FLAG"`.
 
             temporal_resolution (Optional[Union[FourWingsReportTemporalResolution, str]], default="HOURLY"):
@@ -318,10 +322,19 @@ class FourWingsResource(BaseResource):
         - Dark vessel detection
         - Remote area surveillance
 
-        For more details on the 4Wings SAR vessel detections data caveats,
+        For more details on the 4Wings SAR vessel detections and its data caveats,
         please refer to the official Global Fishing Watch API documentation:
 
+        See: https://globalfishingwatch.org/our-apis/documentation#sar-vessel-detections
+
         See: https://globalfishingwatch.org/our-apis/documentation#sar-vessel-detections-data-caveats
+
+        **Important:**
+
+        **AIS vessel presence** shows where vessels **reported their positions** via
+        the **Automatic Identification System (AIS)**. **SAR vessel detection** shows
+        where **Synthetic Aperture Radar (SAR) satellites detected** vessels on the
+        ocean surface, even if they **weren't transmitting AIS**.
 
         Args:
             spatial_resolution (Optional[Union[FourWingsReportSpatialResolution, str]], default="HIGH"):
@@ -449,6 +462,11 @@ class FourWingsResource(BaseResource):
         AIS vessel presence is one of the largest datasets available. To prevent timeouts
         and ensure optimal performance, keep requests manageable: prefer simple, small
         regions and shorter time ranges (e.g., a few days).
+
+        **Note:**
+
+        AIS vessel presence (i.e., `"public-global-sar-presence:latest"` dataset) does **not**
+        support `"GEARTYPE"` or `"FLAGANDGEARTYPE"` as `group_by` criteria.
 
         Args:
             spatial_resolution (Optional[Union[FourWingsReportSpatialResolution, str]], default="HIGH"):

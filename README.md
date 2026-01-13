@@ -39,9 +39,11 @@ The Global Fishing Watch Python package currently works with the following APIs:
 
 - [Datasets API](https://globalfishingwatch.org/our-apis/documentation#datasets-api): Retrieve fixed offshore infrastructure detections (e.g., oil platforms, wind farms) from Sentinel-1 and Sentinel-2 satellite imagery, from 2017 up to 3 months ago, classified using deep learning.
 
+- [Bulk Download API](https://globalfishingwatch.org/our-apis/documentation#bulk-download-api): Efficiently access and download large-scale datasets to integrate with big data platforms and tools used by data engineers and researchers. Unlike our other APIs ([Map Visualization (4Wings API)](https://globalfishingwatch.org/our-apis/documentation#map-visualization-4wings-api), [Datasets API](https://globalfishingwatch.org/our-apis/documentation#datasets-api) etc.), these datasets may include some **noisy** that are not filtered out.
+
 - [References API](https://globalfishingwatch.org/our-apis/documentation#regions): Access metadata for EEZs, MPAs, and RFMOs to use in [Events API](https://globalfishingwatch.org/our-apis/documentation#events-api) and [Map Visualization (4Wings API)](https://globalfishingwatch.org/our-apis/documentation#map-visualization-4wings-api) requests and analyses.
 
-> **Note:** See the [Data Caveats](https://globalfishingwatch.org/our-apis/documentation#data-caveat) and [Terms of Use](https://globalfishingwatch.org/our-apis/documentation#terms-of-use) pages in the [GFW API documentation](https://globalfishingwatch.org/our-apis/documentation#introduction) for details on GFW data, API licenses, and rate limits.
+> **Note:** See the [Datasets](https://globalfishingwatch.org/our-apis/documentation#api-dataset), [Data Caveats](https://globalfishingwatch.org/our-apis/documentation#data-caveat), and [Terms of Use](https://globalfishingwatch.org/our-apis/documentation#terms-of-use) pages in the [GFW API documentation](https://globalfishingwatch.org/our-apis/documentation#introduction) for details on GFW data, API licenses, and rate limits.
 
 ## Requirements
 
@@ -72,7 +74,7 @@ gfw_client = gfw.Client(
 )
 ```
 
-For step-by-step instructions and examples, see the [Getting Started](https://globalfishingwatch.github.io/gfw-api-python-client/getting-started.html) and [Usage Guides](https://globalfishingwatch.github.io/gfw-api-python-client/usage-guides/index.html) in the documentation.
+For step-by-step instructions and examples, see the [Getting Started](https://globalfishingwatch.github.io/gfw-api-python-client/getting-started.html), [Usage Guides](https://globalfishingwatch.github.io/gfw-api-python-client/usage-guides/index.html), and [Workflow Guides](https://globalfishingwatch.github.io/gfw-api-python-client/workflow-guides/index.html) in the documentation.
 
 ## Documentation
 
@@ -80,7 +82,7 @@ The full project documentation is available at [globalfishingwatch.github.io/gfw
 
 To get started with the basics, head over to the [Getting Started](https://globalfishingwatch.github.io/gfw-api-python-client/getting-started.html) guide.
 
-For detailed instructions and examples on interacting with the various APIs offered by Global Fishing Watch, explore the [Usage Guides](https://globalfishingwatch.github.io/gfw-api-python-client/usage-guides/index.html) section.
+For detailed instructions and examples on interacting with the various APIs offered by Global Fishing Watch, explore the [Usage Guides](https://globalfishingwatch.github.io/gfw-api-python-client/usage-guides/index.html), and [Workflow Guides](https://globalfishingwatch.github.io/gfw-api-python-client/workflow-guides/index.html) sections.
 
 For a complete reference of all available classes, methods, and modules, see the [API Reference](https://globalfishingwatch.github.io/gfw-api-python-client/apidocs/index.html) section.
 

@@ -19,7 +19,7 @@ SRC_DIR = "../../src/gfwapiclient"
 project = "Global Fishing Watch API Client"
 copyright = "2025, Global Fishing Watch"
 author = "Global Fishing Watch"
-release = "1.0.1"
+release = "1.4.0"
 
 
 # -- General configuration ---------------------------------------------------
@@ -34,8 +34,8 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.intersphinx",
     # third-party extensions
-    "myst_parser",
-    # "myst_nb",
+    # "myst_parser", # imported by myst_nb automatically
+    "myst_nb",
     "autodoc2",
     "sphinx_copybutton",
     "sphinx_inline_tabs",
@@ -47,7 +47,8 @@ templates_path = ["_templates"]
 # The suffix of source filenames.
 source_suffix = {
     ".rst": "restructuredtext",
-    ".md": "markdown",
+    ".md": "myst-nb",
+    ".ipynb": "myst-nb",
 }
 
 # The master toctree document.
@@ -94,6 +95,16 @@ myst_enable_extensions = [
     "html_image",
 ]
 myst_heading_anchors = 3
+
+# -- MyST-NB execution configuration ------------------------------------------
+# https://myst-nb.readthedocs.io/en/latest/configuration.html#config-intro
+
+nb_execution_mode = "force"
+nb_execution_timeout = 300
+nb_execution_raise_on_error = True
+
+nb_output_stderr = "show"
+nb_merge_streams = True
 
 
 # -- Options for autodoc2 -------------------------------------------------
