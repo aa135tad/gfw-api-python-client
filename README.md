@@ -74,7 +74,7 @@ gfw_client = gfw.Client(
 )
 ```
 
-For step-by-step instructions and examples, see the [Getting Started](https://globalfishingwatch.github.io/gfw-api-python-client/getting-started.html) and [Usage Guides](https://globalfishingwatch.github.io/gfw-api-python-client/usage-guides/index.html) in the documentation.
+For step-by-step instructions and examples, see the [Getting Started](https://globalfishingwatch.github.io/gfw-api-python-client/getting-started.html), [Usage Guides](https://globalfishingwatch.github.io/gfw-api-python-client/usage-guides/index.html), and [Workflow Guides](https://globalfishingwatch.github.io/gfw-api-python-client/workflow-guides/index.html) in the documentation.
 
 ## Documentation
 
@@ -82,7 +82,7 @@ The full project documentation is available at [globalfishingwatch.github.io/gfw
 
 To get started with the basics, head over to the [Getting Started](https://globalfishingwatch.github.io/gfw-api-python-client/getting-started.html) guide.
 
-For detailed instructions and examples on interacting with the various APIs offered by Global Fishing Watch, explore the [Usage Guides](https://globalfishingwatch.github.io/gfw-api-python-client/usage-guides/index.html) section.
+For detailed instructions and examples on interacting with the various APIs offered by Global Fishing Watch, explore the [Usage Guides](https://globalfishingwatch.github.io/gfw-api-python-client/usage-guides/index.html), and [Workflow Guides](https://globalfishingwatch.github.io/gfw-api-python-client/workflow-guides/index.html) sections.
 
 For a complete reference of all available classes, methods, and modules, see the [API Reference](https://globalfishingwatch.github.io/gfw-api-python-client/apidocs/index.html) section.
 

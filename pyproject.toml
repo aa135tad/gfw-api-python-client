@@ -75,7 +75,7 @@ dependencies = [
 [project.optional-dependencies]
 # Linting and code quality tools
 lint = [
-  "black>=25.9.0",               # Code formatting tool
+  "black[jupyter]>=25.9.0",      # Code formatting tool
   "isort>=7.0.0",                # Python imports sorting tool
   "mypy>=1.18.2",                # Static type checker
   "pydocstyle>=6.3.0",           # Python docstring style checker

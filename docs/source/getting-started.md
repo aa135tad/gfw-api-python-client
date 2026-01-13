@@ -47,8 +47,8 @@ For more detailed installation instructions, including setting up a virtual envi
 Once installed, you can import and use `gfw-api-python-client` in your Python codes:
 
 ```python
-import os
 import datetime
+import os
 
 import gfwapiclient as gfw
 
@@ -62,6 +62,10 @@ gfw_client = gfw.Client(
     access_token=access_token,
 )
 ```
+
+> **Important:** The `gfw-api-python-client` is **async-first**: all API methods are asynchronous and must be executed using Python's `async` / `await` syntax. **Environments with built-in async support** (e.g., _Jupyter Notebook_, _Google Colab_, and async web frameworks such as _FastAPI_) can call client methods directly using `await`, with no additional setup. **Environments without built-in async support** (e.g., _plain Python scripts_, _Python modules_, or synchronous web frameworks such as _Flask_ and _Django_) must explicitly run asynchronous code using an event loop. This can be done with tools such as [`asyncio.run`](https://docs.python.org/3/library/asyncio.html), [`trio.run`](https://trio.readthedocs.io/en/stable/), [`anyio.run`](https://anyio.readthedocs.io/en/stable/), or framework-specific async integration.
+
+> **Tip:** Use [IPython](https://ipython.readthedocs.io/en/stable/) or Python 3.11+ with `python -m asyncio` to run `gfw-api-python-client` code interactively, as these environments support executing `async` / `await` expressions directly in the console.
 
 ## Making API Requests
 
@@ -103,6 +107,10 @@ vessel_self_reported_infos = [
     for self_reported_info in vessel_item.self_reported_info
 ]
 
+vessel_ids = [
+    self_reported_info.id for self_reported_info in vessel_self_reported_infos
+]
+
 print(vessel_ids)
 ```
 
@@ -124,6 +132,7 @@ start_datetime = min(
     ]
 )
 start_date = start_datetime.date()
+start_date = max(start_date, datetime.date.fromisoformat("2020-01-01"))
 
 
 end_datetime = max(
@@ -226,6 +235,6 @@ memory usage: 43.7+ KB
 
 This guide has provided you with the fundamental steps to install and use the `gfw-api-python-client` for making basic API requests.
 
-To further explore the capabilities of our APIs (`4Wings`, `Vessels`, `Events`, `Insights`, `Datasets`, `References`, etc.), please refer to the detailed [Usage Guides](usage-guides/index) and [Workflow Guides](workflow-guides/index). These guides delve into specific use cases and demonstrate how to effectively leverage the `gfw-api-python-client` for your data exploration needs.
+To further explore the capabilities of our APIs (`4Wings`, `Vessels`, `Events`, `Insights`, `Datasets`, `Bulk Download`, `References`, etc.), please refer to the detailed [Usage Guides](usage-guides/index) and [Workflow Guides](workflow-guides/index). These guides delve into specific use cases and demonstrate how to effectively leverage the `gfw-api-python-client` for your data exploration needs.
 
 Happy coding and data exploring!
