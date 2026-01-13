@@ -374,7 +374,7 @@ The 4Wings API often requires specifying geographic regions. You can use the [Re
 
 ## Next Steps
 
-Explore the [Usage Guides](index) for other API resources to understand how you can combine the reporting and statistical capabilities of the 4Wings API with vessel information, event data, and more. Check out the following resources:
+Explore the [Usage Guides](index) and [Workflow Guides](../workflow-guides/index) for other API resources to understand how you can combine the reporting and statistical capabilities of the 4Wings API with vessel information, event data, and more. Check out the following resources:
 
 - [Vessels API](vessels-api)
 - [Events API](events-api)

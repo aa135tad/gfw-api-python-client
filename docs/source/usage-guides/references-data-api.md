@@ -178,7 +178,7 @@ memory usage: 1.4+ KB
 
 ## Next Steps
 
-Explore the [Usage Guides](index) for other API resources to understand how you can combine reference data with dynamic information about events, vessels, and more. Check out the following resources:
+Explore the [Usage Guides](index) and [Workflow Guides](../workflow-guides/index) for other API resources to understand how you can combine reference data with dynamic information about events, vessels, and more. Check out the following resources:
 
 - [4Wings API](4wings-api)
 - [Vessels API](vessels-api)
