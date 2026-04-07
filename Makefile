@@ -1,13 +1,14 @@
 .DEFAULT_GOAL := help
 sources = src tests
 notebooks-sources = notebooks
+PYTHON ?= env/Scripts/python.exe
 
 .PHONY: install  ## Install the package, dependencies, and pre-commit for local development
 install:
-	python -m pip install -U pip
-	python -m pip install -e .[lint,test,dev,build,docs,notebooks]
-	python -m pre_commit install --install-hooks
-	python -m pre_commit install --hook-type commit-msg
+	$(PYTHON) -m pip install -U pip
+	$(PYTHON) -m pip install -e .[lint,test,dev,build,docs,notebooks]
+	$(PYTHON) -m pre_commit install --install-hooks
+	$(PYTHON) -m pre_commit install --hook-type commit-msg
 
 .PHONY: format  ## Auto-format python source files
 format:
@@ -23,39 +24,39 @@ format-notebooks:
 
 .PHONY: lint  ## Lint python source files
 lint:
-	python -m ruff check $(sources)
-	python -m ruff format --check $(sources)
-	python -m black $(sources) --check --diff
+	$(PYTHON) -m ruff check $(sources)
+	$(PYTHON) -m ruff format --check $(sources)
+	$(PYTHON) -m black $(sources) --check --diff
 
 .PHONY: lint-notebooks  ## Lint Jupyter Notebooks
 lint-notebooks:
-	python -m ruff check $(notebooks-sources)
-	python -m ruff format --check $(notebooks-sources)
-	python -m black $(notebooks-sources) --check --diff
+	$(PYTHON) -m ruff check $(notebooks-sources)
+	$(PYTHON) -m ruff format --check $(notebooks-sources)
+	$(PYTHON) -m black $(notebooks-sources) --check --diff
 
 .PHONY: codespell  ## Use Codespell to do spellchecking
 codespell:
-	python -m codespell_lib
+	$(PYTHON) -m codespell_lib
 
 .PHONY: typecheck  ## Perform type-checking
 typecheck:
-	python -m mypy
+	$(PYTHON) -m mypy
 
 .PHONY: audit  ## Use pip-audit to scan for known vulnerabilities
 audit:
-	python -m pip_audit .
+	$(PYTHON) -m pip_audit .
 
 .PHONY: test  ## Run all unit tests and generate a coverage report
 test:
-	python -m pytest -m "not integration" --cov-report term --cov-report=xml --cov=$(sources)
+	$(PYTHON) -m pytest -m "not integration" --cov-report term --cov-report=xml --cov=$(sources)
 
 .PHONY: test-integration  ## Run only integration tests (if configured) without generate a coverage report
 test-integration:
-	python -m pytest -m "integration" -rs -n auto --dist=loadscope --maxfail=5 --durations=10 --tb=short
+	$(PYTHON) -m pytest -m "integration" -rs -n auto --dist=loadscope --maxfail=5 --durations=10 --tb=short
 
 .PHONY: pre-commit  ## Run all pre-commit hooks
 pre-commit:
-	python -m pre_commit run --all-files
+	$(PYTHON) -m pre_commit run --all-files
 
 .PHONY: all  ## Run the standard set of checks performed in CI
 all: lint codespell typecheck audit test
@@ -95,11 +96,11 @@ servedocs:
 
 .PHONY: notebooks  ## Run notebooks
 notebooks:
-	PYTHONHASHSEED=42 python -m jupyterlab
+	PYTHONHASHSEED=42 $(PYTHON) -m jupyterlab
 
 .PHONY: build  ## Build source and wheel distributions
 build: all clean
-	python -m build
+	$(PYTHON) -m build
 
 .PHONY: distcheck  ## Validate built distributions
 distcheck: build
@@ -112,7 +113,7 @@ distcheck: build
 
 .PHONY: publish  ## Publish the built distributions to PyPI
 publish: distcheck
-	python -m twine upload dist/* --verbose
+	$(PYTHON) -m twine upload dist/* --verbose
 
 .PHONY: help  ## Display this message
 help:

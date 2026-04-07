@@ -1,0 +1,22 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Target Area (Northwest)",
+        "desc": "台灣海峽北部區域 (N24°59′ - N26°17′)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [120.066667, 24.983333],
+          [121.216667, 25.650000],
+          [121.216667, 26.283333],
+          [120.066667, 25.616667],
+          [120.066667, 24.983333]
+        ]]
+      }
+    }
+  ]
+}
