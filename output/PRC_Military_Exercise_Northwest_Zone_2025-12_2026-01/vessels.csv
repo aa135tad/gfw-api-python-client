@@ -1,4 +1,4 @@
-﻿vessel_id,mmsi,ship_name,flag,vessel_type,geartype,hours,entry_ts,exit_ts,is_china_flag,is_china_mmsi,is_known_ccg,has_no_name,suspicious_score
+vessel_id,mmsi,ship_name,flag,vessel_type,geartype,hours,entry_ts,exit_ts,is_china_flag,is_china_mmsi,is_known_ccg,has_no_name,suspicious_score
 9a9a06be8-8d50-ee38-4a48-77e827810b12,413595812,,CHN,FISHING,TRAWLERS,4,2025-12-28T22:00:00Z,2025-12-29T23:00:00Z,True,True,False,True,0.7
 90fcf8250-0fb1-aa3e-ca0f-836acbe1afb0,413000032,,CHN,FISHING,FISHING,6,2025-12-29T13:00:00Z,2025-12-29T21:00:00Z,True,True,False,True,0.7
 cc8b357f2-2de7-f9f8-4820-d6f96bee9901,413242550,GAOYUANHENGSHENG,CHN,CARGO,CARGO,4,2025-12-29T02:00:00Z,2025-12-29T05:00:00Z,True,True,False,False,0.5

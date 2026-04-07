@@ -1,4 +1,4 @@
-﻿vessel_id,registry_count,reg_mmsi,reg_flag,reg_name,reg_imo,reg_geartype,reg_owner,ais_mmsi,ais_flag,ais_name,ais_match_fields,ais_msg_count,no_registry,flag_mismatch,name_mismatch,no_match,no_shipname,mmsi_history_count,mmsi_history,parse_error
+vessel_id,registry_count,reg_mmsi,reg_flag,reg_name,reg_imo,reg_geartype,reg_owner,ais_mmsi,ais_flag,ais_name,ais_match_fields,ais_msg_count,no_registry,flag_mismatch,name_mismatch,no_match,no_shipname,mmsi_history_count,mmsi_history,parse_error
 9a9a06be8-8d50-ee38-4a48-77e827810b12,0.0,,,,,[],,413275150,CHN,ZHONG TIAN QI HANG,NO_MATCH,2120353.0,True,False,False,True,False,1.0,['413275150'],
 90fcf8250-0fb1-aa3e-ca0f-836acbe1afb0,0.0,,,,,[],,413225230,CHN,JIE HANG 16,NO_MATCH,2624757.0,True,False,False,True,False,1.0,['413225230'],
 cc8b357f2-2de7-f9f8-4820-d6f96bee9901,0.0,,,,,[],,413704320,CHN,AN TONG TANG SHAN,NO_MATCH,1254273.0,True,False,False,True,False,1.0,['413704320'],
